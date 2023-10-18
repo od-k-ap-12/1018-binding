@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_1018_binding"
         mc:Ignorable="d"
-        Title="MainWindow" Height="326" Width="342">
+        Title="Sum" Height="326" Width="342">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -25,8 +25,8 @@
         <Label Content="A" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Height="37" Width="23"/>
         <Label Content="B" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Height="36" Width="22"/>
         <Label Content="Answer" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Height="37" Width="74"/>
-        <TextBox Grid.Row="2" Grid.Column="2" Margin="8,8,8,8"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Margin="8,8,8,8"/>
-        <TextBox Grid.Row="4" Grid.Column="2" Margin="8,8,8,8"/>
+        <TextBox Text="{Binding Path=_A}" Grid.Row="2" Grid.Column="2" Margin="8,8,8,8"/>
+        <TextBox Text="{Binding Path=_B}" Grid.Row="3" Grid.Column="2" Margin="8,8,8,8"/>
+        <TextBox Text="{Binding Path=_Answer, Mode=OneWay}" Grid.Row="4" Grid.Column="2" Margin="8,8,8,8" IsReadOnly="True"/>
     </Grid>
 </Window>

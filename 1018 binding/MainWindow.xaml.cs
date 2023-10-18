@@ -21,16 +21,19 @@ namespace _1018_binding
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Sum _sum;
         public MainWindow()
         {
             InitializeComponent();
+            _sum = new Sum();
+            this.DataContext = _sum;
         }
 
         public class Sum : INotifyPropertyChanged
         {
-            private double A;
-            private double B;
-            private double Answer;
+            double A;
+            double B;
+            double Answer;
             public double _A
             {
                 get
@@ -40,9 +43,7 @@ namespace _1018_binding
                 set
                 {
                     A = value;
-                    Answer = A + B;
-                    OnPropertyChanged("A");
-                    OnPropertyChanged("Answer");
+                    _Answer = A + B;
                 }
             }
             public double _B
@@ -54,9 +55,7 @@ namespace _1018_binding
                 set
                 {
                     B = value;
-                    Answer = A + B;
-                    OnPropertyChanged("B");
-                    OnPropertyChanged("Answer");
+                    _Answer = A + B;
                 }
             }
             public double _Answer
@@ -68,11 +67,11 @@ namespace _1018_binding
                 set
                 {
                     Answer = value;
-                    OnPropertyChanged("Answer");
+                    OnPropertyChanged("_Answer");
                 }
             }
 
-            public event PropertyChangedEventHandler PropertyChanged;
+            public event PropertyChangedEventHandler? PropertyChanged;
             public void OnPropertyChanged(params string[] propertyNames)
             {
                 PropertyChangedEventHandler? handler = PropertyChanged;
